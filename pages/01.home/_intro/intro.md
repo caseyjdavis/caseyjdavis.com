@@ -1,6 +1,7 @@
 ---
 title: intro
 center_content: false
+body_classes: bg-alt
 ---
 
 # Casey Davis
