@@ -1,0 +1,42 @@
+enabled: true
+dropdown:
+  enabled: true
+footer_credit: true
+copyright:
+  year: '2019'
+  name: 'Jason Cox'
+  link: 'https://jasoncarloscox.com'
+custom_logo:
+  user/images/webfolio/logo.png:
+    name: logo.png
+    type: image/png
+    size: 35720
+    path: user/images/webfolio/logo.png
+custom_logo_mobile:
+  user/images/webfolio/logo-mobile.png:
+    name: logo-mobile.png
+    type: image/png
+    size: 33462
+    path: user/images/webfolio/logo-mobile.png
+favicon:
+  user/images/webfolio/favicon.png:
+    name: favicon.png
+    type: image/png
+    size: 4682
+    path: user/images/webfolio/favicon.png
+footer_links:
+  -
+    link: 'mailto:contact@jasoncarloscox.com'
+    icon: 'fas fa-envelope'
+  -
+    link: 'https://gitlab.com/jasonccox'
+    icon: 'fab fa-gitlab'
+  -
+    link: 'https://github.com/jasonccox'
+    icon: 'fab fa-github'
+  -
+    link: 'https://www.linkedin.com/in/jasoncarloscox'
+    icon: 'fab fa-linkedin-in'
+  -
+    link: 'https://twitter.com/jasoncarloscox'
+    icon: 'fab fa-twitter'

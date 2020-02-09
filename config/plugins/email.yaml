@@ -1,0 +1,18 @@
+enabled: true
+from: contact@jasoncarloscox.com
+to: contact@jasoncarloscox.com
+queue:
+  enabled: false
+  flush_frequency: '* * * * *'
+  flush_msg_limit: 10
+  flush_time_limit: 100
+mailer:
+  engine: sendmail
+  smtp:
+    server: localhost
+    port: 25
+    encryption: none
+  sendmail:
+    bin: '/sbin/sendmail -bs'
+content_type: text/html
+debug: false
