@@ -1,0 +1,35 @@
+---
+// src/components/Services.astro
+const services = [
+  {
+    icon: '☁️',
+    title: 'Cloud Migration',
+    description: 'Move your business to Azure — planned, tested, and stress-free.',
+  },
+  {
+    icon: '🔧',
+    title: 'Managed Azure',
+    description: 'Ongoing monitoring, optimization, and support for your cloud environment.',
+  },
+  {
+    icon: '💼',
+    title: 'SMB IT Support',
+    description: 'On-site and remote IT support for Denver-area small businesses.',
+  },
+];
+---
+
+<section id="services" class="px-6 py-16 bg-midnight">
+  <p class="text-center text-brand-orange text-xs font-bold uppercase tracking-widest mb-8">
+    Services
+  </p>
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+    {services.map((service) => (
+      <div class="bg-slate-dark border border-slate-border p-6 rounded">
+        <div class="text-2xl mb-3">{service.icon}</div>
+        <h3 class="text-white font-bold mb-2">{service.title}</h3>
+        <p class="text-slate-muted text-sm leading-relaxed">{service.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

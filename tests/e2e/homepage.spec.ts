@@ -63,3 +63,12 @@ test('case study shows Brighton Fire Rescue', async ({ page }) => {
   await expect(section).toContainText('140');
   await expect(section).toContainText('100%');
 });
+
+test('services section shows 3 services', async ({ page }) => {
+  await page.goto('/');
+  const section = page.locator('#services');
+  await expect(section).toBeVisible();
+  await expect(section).toContainText('Cloud Migration');
+  await expect(section).toContainText('Managed Azure');
+  await expect(section).toContainText('SMB IT Support');
+});
