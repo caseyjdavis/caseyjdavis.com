@@ -32,7 +32,7 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 |---|---|---|
 | Framework | Astro | Content-focused, fast, excellent SEO, native Markdown blog support, minimal JS output |
 | Styling | Tailwind CSS | Full design control, consistent utility-first approach |
-| Deployment | Cloudflare Pages | Fast global CDN, generous free tier, easy git-based deploys |
+| Deployment | Cloudflare Pages | Fast global CDN, generous free tier, easy git-based deploys; preview URL available immediately for staging |
 | Forms | Formspree | Serverless form handling without a backend; compatible with Cloudflare Pages (Netlify Forms requires Netlify's own CDN pipeline and will not work here) |
 | Scheduling | Calendly embed | Direct call booking without custom infrastructure |
 
@@ -51,6 +51,15 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 | Border | Dark Border | `#334155` |
 
 *Note: The midnight + orange palette intentionally echoes Denver Broncos colors, providing a subtle local Denver connection.*
+
+---
+
+## Repository & Deployment Strategy
+
+- **New repository:** `caseyjdavis/caseyjdavis.com` (separate from the existing `caseyjdavis/caseyjdavis` GitHub Pages repo)
+- **Staging:** Cloudflare Pages provides a free preview URL (e.g., `caseyjdavis-com.pages.dev`) immediately on first deploy — all testing happens here
+- **Cutover:** When the new site is ready, add `www.caseyjdavis.com` as a custom domain in Cloudflare Pages and update DNS; the existing GitHub Pages site stays live until DNS propagates
+- **Old repo:** Leave `caseyjdavis/caseyjdavis` in place as a fallback until the new site is confirmed stable, then archive it
 
 ---
 
