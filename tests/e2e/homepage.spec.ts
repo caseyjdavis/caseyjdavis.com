@@ -54,3 +54,12 @@ test('how it works shows 3 steps', async ({ page }) => {
   await expect(steps.nth(1)).toContainText('I Assess');
   await expect(steps.nth(2)).toContainText('We Build');
 });
+
+test('case study shows Brighton Fire Rescue', async ({ page }) => {
+  await page.goto('/');
+  const section = page.locator('#featured-work');
+  await expect(section).toBeVisible();
+  await expect(section).toContainText('Brighton Fire Rescue');
+  await expect(section).toContainText('140');
+  await expect(section).toContainText('100%');
+});
