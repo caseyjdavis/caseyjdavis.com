@@ -20,7 +20,7 @@ export default {
       },
       fontFamily: {
         sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        display: ['Syne', 'system-ui', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'system-ui', 'sans-serif'],
         mono: ['Space Mono', 'monospace'],
       },
     },
