@@ -75,8 +75,9 @@ const formspreeId = import.meta.env.FORMSPREE_ID ?? 'REPLACE_ME';
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-  const successMsg = document.getElementById('form-success')!;
-  const errorMsg = document.getElementById('form-error')!;
+  const successMsg = document.getElementById('form-success');
+  const errorMsg = document.getElementById('form-error');
+  if (!form || !submitBtn || !successMsg || !errorMsg) return;
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
