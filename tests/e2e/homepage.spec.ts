@@ -72,3 +72,10 @@ test('services section shows 3 services', async ({ page }) => {
   await expect(section).toContainText('Managed Azure');
   await expect(section).toContainText('SMB IT Support');
 });
+
+test('bottom CTA links to contact page', async ({ page }) => {
+  await page.goto('/');
+  const cta = page.locator('section').filter({ hasText: 'Ready to simplify' });
+  await expect(cta).toBeVisible();
+  await expect(cta.locator('a[href="/contact"]')).toBeVisible();
+});
