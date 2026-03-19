@@ -1,0 +1,35 @@
+---
+// src/components/HowItWorks.astro
+const steps = [
+  {
+    number: '01',
+    title: 'We Talk',
+    description: 'Free 30-minute call to understand your current setup and goals.',
+  },
+  {
+    number: '02',
+    title: 'I Assess',
+    description: 'Deep audit of your infrastructure, costs, and risk areas.',
+  },
+  {
+    number: '03',
+    title: 'We Build',
+    description: 'Migration, deployment, and ongoing support tailored to your business.',
+  },
+];
+---
+
+<section id="how-it-works" class="px-6 py-16 bg-midnight">
+  <p class="text-center text-brand-orange text-xs font-bold uppercase tracking-widest mb-8">
+    How It Works
+  </p>
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+    {steps.map((step) => (
+      <div data-step class="bg-slate-dark border-t-2 border-brand-orange p-6 rounded">
+        <div class="text-2xl font-extrabold text-brand-orange mb-2">{step.number}</div>
+        <h3 class="text-white font-bold mb-2">{step.title}</h3>
+        <p class="text-slate-muted text-sm leading-relaxed">{step.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

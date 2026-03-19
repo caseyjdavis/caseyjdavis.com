@@ -45,3 +45,12 @@ test('hero has Denver badge', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('text=Denver, CO')).toBeVisible();
 });
+
+test('how it works shows 3 steps', async ({ page }) => {
+  await page.goto('/');
+  const steps = page.locator('[data-step]');
+  await expect(steps).toHaveCount(3);
+  await expect(steps.nth(0)).toContainText('We Talk');
+  await expect(steps.nth(1)).toContainText('I Assess');
+  await expect(steps.nth(2)).toContainText('We Build');
+});
