@@ -2,35 +2,49 @@
 // src/components/Hero.astro
 ---
 
-<section class="px-6 py-16 md:py-24 text-center bg-gradient-to-b from-midnight to-slate-dark">
-  <div class="max-w-2xl mx-auto">
-    <span class="inline-block bg-blue-950 text-blue-400 text-xs px-4 py-1 rounded-full mb-6 border border-brand-blue">
-      ☁️ Azure Cloud Consulting · Denver, CO
-    </span>
+<section class="px-6 py-16 md:py-24 bg-gradient-to-b from-midnight to-slate-dark">
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
 
-    <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
-      Stop Managing<br />
-      <span class="text-brand-orange">IT Headaches.</span>
-    </h1>
+    <!-- Text -->
+    <div class="flex-1 text-center md:text-left">
+      <span class="inline-block bg-blue-950 text-blue-400 text-xs px-4 py-1 rounded-full mb-6 border border-brand-blue">
+        ☁️ Azure Cloud Consulting · Denver, CO
+      </span>
 
-    <p class="text-slate-muted text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto">
-      I help Denver small businesses move to the cloud — reducing costs, improving
-      reliability, and eliminating the systems that slow you down.
-    </p>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+        Stop Managing<br />
+        <span class="text-brand-orange">IT Headaches.</span>
+      </h1>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a
-        href="/contact"
-        class="bg-brand-orange text-white px-6 py-3 rounded font-bold hover:bg-orange-500 transition-colors"
-      >
-        Book a Free 30-Min Call →
-      </a>
-      <a
-        href="#featured-work"
-        class="border border-slate-border text-slate-muted px-6 py-3 rounded hover:text-white hover:border-slate-muted transition-colors"
-      >
-        See My Work
-      </a>
+      <p class="text-slate-muted text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+        I help Denver small businesses move to the cloud — reducing costs, improving
+        reliability, and eliminating the systems that slow you down.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a
+          href="/contact"
+          class="bg-brand-orange text-white px-6 py-3 rounded font-bold hover:bg-orange-500 transition-colors"
+        >
+          Book a Free 30-Min Call →
+        </a>
+        <a
+          href="#featured-work"
+          class="border border-slate-border text-slate-muted px-6 py-3 rounded hover:text-white hover:border-slate-muted transition-colors"
+        >
+          See My Work
+        </a>
+      </div>
     </div>
+
+    <!-- Headshot -->
+    <div class="flex-shrink-0">
+      <img
+        src="/headshot.jpg"
+        alt="Casey Davis — Azure Cloud Consultant"
+        class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-brand-blue shadow-lg"
+      />
+    </div>
+
   </div>
 </section>
