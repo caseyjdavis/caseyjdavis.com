@@ -22,10 +22,12 @@
 
   <!-- Mobile hamburger -->
   <button
+    id="hamburger-btn"
     data-hamburger
     class="md:hidden text-slate-muted hover:text-white"
-    aria-label="Open menu"
-    onclick="document.querySelector('[data-mobile-menu]').classList.toggle('hidden')"
+    aria-label="Toggle menu"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
   >
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -34,9 +36,26 @@
 </nav>
 
 <!-- Mobile drawer -->
-<div data-mobile-menu class="hidden md:hidden bg-slate-dark border-b border-slate-border px-6 py-4 flex flex-col gap-4 text-sm">
+<div
+  id="mobile-menu"
+  data-mobile-menu
+  class="hidden md:hidden bg-slate-dark border-b border-slate-border px-6 py-4 flex flex-col gap-4 text-sm"
+  aria-hidden="true"
+>
   <a href="#services" class="text-slate-muted hover:text-white transition-colors">Services</a>
   <a href="#featured-work" class="text-slate-muted hover:text-white transition-colors">Work</a>
   <a href="/blog" class="text-slate-muted hover:text-white transition-colors">Blog</a>
   <a href="/contact" class="bg-brand-orange text-white px-4 py-2 rounded font-bold text-center">Book a Call</a>
 </div>
+
+<script>
+  const btn = document.getElementById('hamburger-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    menu?.classList.toggle('hidden');
+    menu?.setAttribute('aria-hidden', String(isOpen));
+  });
+</script>
