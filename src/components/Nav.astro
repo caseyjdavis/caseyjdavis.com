@@ -1,0 +1,42 @@
+---
+// src/components/Nav.astro
+---
+
+<nav class="flex items-center justify-between px-6 py-4 border-b border-slate-border">
+  <a href="/" class="font-bold text-white text-sm">
+    Casey<span class="text-brand-orange">.</span>Davis
+  </a>
+
+  <!-- Desktop links -->
+  <div class="hidden md:flex items-center gap-6 text-sm text-slate-muted">
+    <a href="#services" class="hover:text-white transition-colors">Services</a>
+    <a href="#featured-work" class="hover:text-white transition-colors">Work</a>
+    <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+    <a
+      href="/contact"
+      class="bg-brand-orange text-white px-4 py-2 rounded font-bold hover:bg-orange-500 transition-colors"
+    >
+      Book a Call
+    </a>
+  </div>
+
+  <!-- Mobile hamburger -->
+  <button
+    data-hamburger
+    class="md:hidden text-slate-muted hover:text-white"
+    aria-label="Open menu"
+    onclick="document.querySelector('[data-mobile-menu]').classList.toggle('hidden')"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div data-mobile-menu class="hidden md:hidden bg-slate-dark border-b border-slate-border px-6 py-4 flex flex-col gap-4 text-sm">
+  <a href="#services" class="text-slate-muted hover:text-white transition-colors">Services</a>
+  <a href="#featured-work" class="text-slate-muted hover:text-white transition-colors">Work</a>
+  <a href="/blog" class="text-slate-muted hover:text-white transition-colors">Blog</a>
+  <a href="/contact" class="bg-brand-orange text-white px-4 py-2 rounded font-bold text-center">Book a Call</a>
+</div>
