@@ -3,12 +3,17 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="px-6 py-8 bg-midnight border-t border-slate-border text-center text-slate-muted text-sm">
-  <div class="flex flex-col sm:flex-row justify-center gap-4 mb-4">
-    <a href="/blog" class="hover:text-white transition-colors">Blog</a>
-    <a href="/contact" class="hover:text-white transition-colors">Contact</a>
-    <a href="https://linkedin.com/in/mrcaseyjdavis" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
-    <a href="https://github.com/caseyjdavis" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
+<footer class="px-6 py-10 bg-midnight border-t border-slate-border">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+    <span class="font-display font-bold text-white text-sm">
+      Casey<span class="text-brand-orange">.</span>Davis
+    </span>
+    <div class="flex items-center gap-6 text-sm text-slate-muted">
+      <a href="/blog" class="hover:text-white transition-colors">Blog</a>
+      <a href="/contact" class="hover:text-white transition-colors">Contact</a>
+      <a href="https://linkedin.com/in/mrcaseyjdavis" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+      <a href="https://github.com/caseyjdavis" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
+    </div>
+    <p class="text-slate-muted text-xs font-mono">© {year} Casey Davis. Denver, CO.</p>
   </div>
-  <p>© {year} Casey Davis. Denver, CO.</p>
 </footer>

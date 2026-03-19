@@ -19,17 +19,30 @@ const services = [
 ];
 ---
 
-<section id="services" class="px-6 py-16 bg-midnight">
-  <p class="text-center text-brand-orange text-xs font-bold uppercase tracking-widest mb-8">
+<section id="services" class="px-6 py-20 md:py-28 bg-midnight">
+  <p class="text-center text-brand-orange text-xs font-mono font-bold uppercase tracking-[0.2em] mb-14 reveal">
     Services
   </p>
-  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-    {services.map((service) => (
-      <div class="bg-slate-dark border border-slate-border p-6 rounded">
-        <div class="text-2xl mb-3">{service.icon}</div>
-        <h3 class="text-white font-bold mb-2">{service.title}</h3>
+
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+    {services.map((service, i) => (
+      <div
+        class={`reveal reveal-delay-${i + 1} card-hover bg-slate-dark rounded-xl p-7 group`}
+        style="border: 1px solid #334155;"
+      >
+        <div class="text-3xl mb-5">{service.icon}</div>
+        <h3 class="font-display text-white font-bold text-lg mb-3">{service.title}</h3>
         <p class="text-slate-muted text-sm leading-relaxed">{service.description}</p>
+        <div class="mt-6 w-6 h-px bg-brand-orange transition-all duration-300 group-hover:w-12"></div>
       </div>
     ))}
   </div>
 </section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); } }),
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('#services .reveal').forEach((el) => observer.observe(el));
+</script>

@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Users/casdavis/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.5/skills/brainstorming/scripts/start-server.sh --project-dir /Users/casdavis/Github/caseyjdavis.com)",
+      "WebFetch(domain:www.caseyjdavis.com)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git -C /Users/casdavis/Github/caseyjdavis.com log --oneline)",
+      "Bash(npm create:*)",
+      "Bash(printf '\\\\n')",
+      "Bash(cp:*)",
+      "Bash(npm install:*)",
+      "Bash(npm show:*)",
+      "Bash(npm list:*)",
+      "Bash(npx playwright:*)",
+      "Bash(curl -o /Users/casdavis/Github/caseyjdavis.com/public/headshot.jpg \"https://placehold.co/400x400/1e293b/94a3b8?text=Photo\")",
+      "Bash(npm run:*)",
+      "Bash(git -C /Users/casdavis/Github/caseyjdavis.com status)",
+      "Bash(git -C /Users/casdavis/Github/caseyjdavis.com log --oneline -5)",
+      "Bash(git:*)",
+      "Bash(node:*)",
+      "Bash(npm view:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm test:*)",
+      "Bash(npx astro:*)",
+      "Bash(grep -r \"aria-\" /Users/casdavis/Github/caseyjdavis.com/src/components/*.astro)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(gh auth:*)",
+      "Bash(sips:*)"
+    ]
+  }
+}

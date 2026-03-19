@@ -2,13 +2,32 @@
 // src/components/BottomCTA.astro
 ---
 
-<section class="px-6 py-20 text-center bg-gradient-to-b from-slate-dark to-midnight border-t border-slate-border">
-  <h2 class="text-3xl font-extrabold text-white mb-3">Ready to simplify your IT?</h2>
-  <p class="text-slate-muted mb-8">Let's talk — no pressure, no jargon.</p>
-  <a
-    href="/contact"
-    class="bg-brand-orange text-white px-8 py-4 rounded font-bold hover:bg-orange-500 transition-colors inline-block"
-  >
-    Book a Free 30-Min Call →
-  </a>
+<section class="relative px-6 py-24 text-center overflow-hidden" style="background: #0f172a; border-top: 1px solid #1e293b;">
+  <!-- Radial orange glow -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(249, 115, 22, 0.1) 0%, transparent 70%);"
+  ></div>
+
+  <div class="relative max-w-xl mx-auto reveal">
+    <p class="text-brand-orange text-xs font-mono font-bold uppercase tracking-[0.2em] mb-5">Get Started</p>
+    <h2 class="font-display text-4xl md:text-5xl font-extrabold text-white mb-4 leading-tight">
+      Ready to simplify<br />your IT?
+    </h2>
+    <p class="text-slate-muted mb-10 text-base">Let's talk — no pressure, no jargon.</p>
+    <a
+      href="/contact"
+      class="btn-orange-glow inline-block bg-brand-orange text-white px-9 py-4 rounded font-display font-bold text-base tracking-wide hover:bg-orange-500"
+    >
+      Book a Free 30-Min Call →
+    </a>
+  </div>
 </section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); } }),
+    { threshold: 0.2 }
+  );
+  document.querySelectorAll('section:last-of-type .reveal').forEach((el) => observer.observe(el));
+</script>

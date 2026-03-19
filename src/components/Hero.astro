@@ -2,35 +2,46 @@
 // src/components/Hero.astro
 ---
 
-<section class="px-6 py-16 md:py-24 bg-gradient-to-b from-midnight to-slate-dark">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+<section class="relative px-6 py-20 md:py-32 overflow-hidden bg-dot-grid" style="background-color: #0f172a;">
+  <!-- Radial glow behind photo (desktop) -->
+  <div
+    class="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, rgba(37,99,235,0.04) 40%, transparent 70%); right: -80px;"
+  ></div>
+  <!-- Subtle bottom gradient fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 pointer-events-none" style="background: linear-gradient(to bottom, transparent, #0f172a);"></div>
+
+  <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative">
 
     <!-- Text -->
     <div class="flex-1 text-center md:text-left">
-      <span class="inline-block bg-blue-950 text-blue-400 text-xs px-4 py-1 rounded-full mb-6 border border-brand-blue">
+      <span
+        class="hero-badge inline-flex items-center gap-2 bg-blue-950 text-blue-400 text-xs font-mono px-4 py-1.5 rounded-full mb-7 border border-brand-blue"
+        style="animation: badge-pulse 2.5s ease-in-out 1s infinite;"
+      >
         ☁️ Azure Cloud Consulting · Denver, CO
       </span>
 
-      <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4">
+      <h1 class="hero-heading font-display text-5xl md:text-6xl font-extrabold text-white leading-[1.05] mb-5 tracking-tight">
         Stop Managing<br />
         <span class="text-brand-orange">IT Headaches.</span>
       </h1>
 
-      <p class="text-slate-muted text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+      <p class="hero-sub text-slate-muted text-base md:text-lg leading-relaxed mb-9 max-w-lg">
         I help Denver small businesses move to the cloud — reducing costs, improving
         reliability, and eliminating the systems that slow you down.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+      <div class="hero-ctas flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
         <a
           href="/contact"
-          class="bg-brand-orange text-white px-6 py-3 rounded font-bold hover:bg-orange-500 transition-colors"
+          class="btn-orange-glow bg-brand-orange text-white px-7 py-3.5 rounded font-bold font-display tracking-wide hover:bg-orange-500"
         >
           Book a Free 30-Min Call →
         </a>
         <a
           href="#featured-work"
-          class="border border-slate-border text-slate-muted px-6 py-3 rounded hover:text-white hover:border-slate-muted transition-colors"
+          class="border border-slate-border text-slate-muted px-7 py-3.5 rounded hover:text-white hover:border-slate-500 transition-colors"
         >
           See My Work
         </a>
@@ -38,11 +49,16 @@
     </div>
 
     <!-- Headshot -->
-    <div class="flex-shrink-0">
+    <div class="hero-photo flex-shrink-0 relative">
+      <!-- Decorative ring -->
+      <div
+        class="absolute inset-0 rounded-full -m-2 pointer-events-none"
+        style="background: conic-gradient(from 180deg, #2563eb, #f97316, #2563eb); opacity: 0.25; border-radius: 9999px;"
+      ></div>
       <img
         src="/headshot.jpg"
         alt="Casey Davis — Azure Cloud Consultant"
-        class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-brand-blue shadow-lg"
+        class="photo-glow w-48 h-48 md:w-64 md:h-64 rounded-full object-cover relative z-10"
       />
     </div>
 

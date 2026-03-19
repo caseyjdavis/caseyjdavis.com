@@ -36,7 +36,7 @@ test('mobile nav drawer opens on hamburger click', async ({ page }) => {
 
 test('hero has headline and dual CTAs', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('h1')).toContainText('Stop Managing');
+  await expect(page.locator('main h1')).toContainText('Stop Managing');
   const heroSection = page.locator('section').first();
   await expect(heroSection.locator('a[href="/contact"]').filter({ hasText: 'Book a Free' })).toBeVisible();
   await expect(page.locator('a[href="#featured-work"]').filter({ hasText: 'See My Work' })).toBeVisible();
