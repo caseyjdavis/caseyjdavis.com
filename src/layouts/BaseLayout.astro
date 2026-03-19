@@ -1,0 +1,49 @@
+---
+// src/layouts/BaseLayout.astro
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Casey Davis — Azure Cloud Consulting · Denver, CO',
+  description = 'Azure cloud consulting for Denver small businesses. Cloud migration, managed Azure, and IT support from Casey Davis.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- LocalBusiness structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Casey Davis Consulting",
+        "description": "Azure cloud consulting for Denver small businesses",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Denver",
+          "addressRegion": "CO",
+          "addressCountry": "US"
+        },
+        "url": "https://www.caseyjdavis.com",
+        "areaServed": "Denver Metropolitan Area"
+      }
+    </script>
+  </head>
+  <body class="bg-midnight text-white font-sans">
+    <slot />
+  </body>
+</html>
