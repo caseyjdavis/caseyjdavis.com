@@ -33,7 +33,7 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 | Framework | Astro | Content-focused, fast, excellent SEO, native Markdown blog support, minimal JS output |
 | Styling | Tailwind CSS | Full design control, consistent utility-first approach |
 | Deployment | Cloudflare Pages | Fast global CDN, generous free tier, easy git-based deploys |
-| Forms | Netlify Forms or Formspree | Serverless form handling without a backend |
+| Forms | Formspree | Serverless form handling without a backend; compatible with Cloudflare Pages (Netlify Forms requires Netlify's own CDN pipeline and will not work here) |
 | Scheduling | Calendly embed | Direct call booking without custom infrastructure |
 
 ---
@@ -70,19 +70,23 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 
 ### 1. Navigation
 - Logo: "Casey.Davis" with orange period accent
-- Links: Services, Case Studies, Blog
-- Primary CTA: "Book a Call" (orange button, right-aligned)
-- Responsive: collapses to hamburger menu on mobile
+- Links:
+  - "Services" — anchor link to the Services section (`#services`)
+  - "Work" — anchor link to the Featured Case Study section (`#featured-work`)
+  - "Blog" — links to `/blog`
+- Primary CTA: "Book a Call" (orange button, right-aligned) — links to `/contact`
+- Responsive: collapses to a slide-down drawer menu on mobile (no full-screen overlay)
 
 ### 2. Hero
 - Badge: "☁️ Azure Cloud Consulting · Denver, CO"
 - Headline: **"Stop Managing IT Headaches."** (bold, white, with "IT Headaches." in orange)
 - Subheadline: "I help Denver small businesses move to the cloud — reducing costs, improving reliability, and eliminating the systems that slow you down."
-- CTAs: "Book a Free 30-Min Call →" (orange, primary) + "See My Work" (ghost, secondary)
+- CTAs: "Book a Free 30-Min Call →" (orange, primary, links to `/contact`) + "See My Work" (ghost, secondary, anchor links to `#featured-work`)
 - Visual: Professional headshot or abstract cloud/Azure-themed background image
 - Background: Subtle gradient from midnight to dark slate
 
 ### 3. How It Works (Process)
+- Section id: `how-it-works`
 - Section label: "HOW IT WORKS" (orange, uppercase, letter-spaced)
 - Three steps with orange top-border accent cards:
   - **01 — We Talk:** Free 30-minute call to understand your current setup and goals.
@@ -90,6 +94,7 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
   - **03 — We Build:** Migration, deployment, and ongoing support tailored to your business.
 
 ### 4. Featured Case Study — Brighton Fire Rescue
+- Section id: `featured-work`
 - Section label: "FEATURED WORK"
 - Card with blue left-border accent
 - Organization: Brighton Fire Rescue
@@ -99,6 +104,7 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 - Tag: "Azure Migration"
 
 ### 5. Services
+- Section id: `services`
 - Section label: "SERVICES"
 - Three cards:
   - **☁️ Cloud Migration** — Move your business to Azure — planned, tested, and stress-free.
@@ -116,16 +122,23 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 
 - Brief intro: "Let's talk about your infrastructure."
 - **Contact form** fields: Name, Email, Company (optional), Message
+  - On success: replace the form with an inline confirmation message ("Thanks! I'll be in touch within 1 business day.")
+  - On error: display an inline error message below the submit button ("Something went wrong — please email me directly at [email].")
+  - Submit button shows a loading state while the request is in flight
 - **Calendly embed**: Direct 30-minute call booking
-- Response time note: e.g., "I typically respond within 1 business day."
+- Response time note: "I typically respond within 1 business day."
 
 ---
 
 ## Blog (`/blog`)
 
 - Clean card grid or list layout
-- Each post: title, date, estimated read time, short excerpt
-- Individual posts use Markdown with frontmatter (title, date, description, tags)
+- Each post: title, date, estimated read time (computed at build time from word count, not a frontmatter field), short excerpt
+- Individual posts use Markdown with frontmatter schema:
+  - `title` (string, required)
+  - `date` (ISO 8601 date string, required)
+  - `description` (string, required — used as excerpt on the index and as meta description)
+  - `tags` (array of strings, optional)
 - Existing posts from current site migrated as Markdown files
 - No comments system in initial build (can be added later)
 
@@ -164,7 +177,7 @@ Full rebuild using a modern static site framework. The homepage serves as the pr
 ## Success Criteria
 
 1. A visitor can book a call or submit a contact form from the homepage without scrolling past two sections.
-2. The Brighton Fire Rescue case study is visible above the fold on most desktop screens.
+2. The Brighton Fire Rescue case study is reachable within one scroll from the hero on a standard 1080p desktop screen.
 3. The site scores 90+ on Google Lighthouse (Performance, Accessibility, SEO).
 4. Blog posts are editable via Markdown without touching component code.
 5. The site is deployed and live on Cloudflare Pages connected to the caseyjdavis.com domain.
