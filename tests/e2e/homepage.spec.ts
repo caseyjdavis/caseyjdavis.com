@@ -37,13 +37,14 @@ test('mobile nav drawer opens on hamburger click', async ({ page }) => {
 test('hero has headline and dual CTAs', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('h1')).toContainText('Stop Managing');
-  await expect(page.locator('a[href="/contact"]').filter({ hasText: 'Book a Free' })).toBeVisible();
+  const heroSection = page.locator('section').first();
+  await expect(heroSection.locator('a[href="/contact"]').filter({ hasText: 'Book a Free' })).toBeVisible();
   await expect(page.locator('a[href="#featured-work"]').filter({ hasText: 'See My Work' })).toBeVisible();
 });
 
 test('hero has Denver badge', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('text=Denver, CO')).toBeVisible();
+  await expect(page.locator('span').filter({ hasText: 'Denver, CO' }).first()).toBeVisible();
 });
 
 test('how it works shows 3 steps', async ({ page }) => {
